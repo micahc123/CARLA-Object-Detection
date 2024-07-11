@@ -219,8 +219,7 @@ class BasicSynchronousClient(object):
 
             self.display = pygame.display.set_mode((VIEW_WIDTH, VIEW_HEIGHT), pygame.HWSURFACE | pygame.DOUBLEBUF)
             pygame_clock = pygame.time.Clock()
-            
-    
+
             self.set_synchronous_mode(True)
             vehicles = self.world.get_actors().filter('vehicle.*')
 

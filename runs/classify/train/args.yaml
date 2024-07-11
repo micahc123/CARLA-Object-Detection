@@ -1,8 +1,8 @@
 task: classify
 mode: train
 model: yolov8n-cls.pt
-data: CARLA-CARS-7
-epochs: 300
+data: CARLA-CARS-10
+epochs: 75
 patience: 50
 batch: 16
 imgsz: 224
