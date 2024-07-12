@@ -1,15 +1,4 @@
-# CARLA Object Detection and Classification with YOLOv8
-
-This project integrates the cutting-edge YOLOv8 object detection model with the CARLA autonomous driving simulation environment to create a robust object detection and classification system. Utilizing a custom dataset prepared and annotated with RoboFlow, this solution aims to enhance autonomous driving technologies by accurately identifying and classifying various objects in real-time within the simulation.
-
-## Features
-
-- **Real-Time Object Detection**: Leverages YOLOv8 for high-speed, accurate object detection within the CARLA simulation environment.
-- **Custom Dataset**: Utilizes a meticulously prepared dataset, annotated and optimized with RoboFlow, tailored for the autonomous driving context.
-- **Seamless Integration**: Efficiently integrates with CARLA, providing a streamlined workflow for simulation-based object detection and classification.
-- **Extensive Object Classification**: Capable of identifying a wide range of objects crucial for autonomous driving, including vehicles, pedestrians, and traffic signs.
-
-## Getting Started
+# CARLA Object Detection with YOLOv10
 
 ### Prerequisites
 
@@ -17,10 +6,20 @@ This project integrates the cutting-edge YOLOv8 object detection model with the 
 - CARLA Simulator (Version 0.9.11 or newer)
 - PyTorch 1.8 or higher
 - CUDA (for GPU acceleration)
-- RoboFlow account (for accessing the dataset)
-
+- 
 ### Installation
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/carla-object-detection-yolov8.git
+2. Run the CARLA Simulator
+   (assuming your in the home directory, also i am showing this example in linux, if you are on windows you can just run the file from the folder)
+   ```bash
+   cd carla_simulator
+   ./CarlaUE4.sh
+   
+4. Run the script
+   (assuming your running this in this folder)
+   ```
+   python control.py
+ 
