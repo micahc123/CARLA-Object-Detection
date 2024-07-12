@@ -18,6 +18,7 @@ CARLA object detection with YOLOv10
    git clone https://github.com/yourusername/carla-object-detection-yolov8.git
 2. Run the CARLA Simulator
    (assuming your in the home directory)
-   '''bash
+   ```bash
    cd carla_simulator
+   
 4. 
