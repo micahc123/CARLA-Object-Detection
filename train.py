@@ -1,17 +1,7 @@
-from ultralytics import YOLO
-
-
+from ultralytics import YOLOv10
 from roboflow import Roboflow
 
+model = YOLOv10("/home/via/weights/yolov10s.pt")
 
-
-rf = Roboflow(api_key="AW8ywqbBjeRFvAXEVXIE")
-project = rf.workspace("mc-rb0d2").project("carla-cars-uqjfy")
-version = project.version(10)
-dataset = version.download("folder")
-
-
-model = YOLO("yolov8n-cls.pt")
-
-if __name__ == '__main__':
-    model.train(data="CARLA-CARS-10",epochs=75)
+#if you want to train own custom model you need to make a datasets folder and put your dataset in it
+model.train(data = "/home/via/datasets/CARLA-Object-Detection-2/data.yaml", epochs = 65, imgsz=800, plots=True)

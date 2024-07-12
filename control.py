@@ -67,6 +67,9 @@ except ImportError:
 VIEW_WIDTH = 1920//2
 VIEW_HEIGHT = 1080//2
 VIEW_FOV = 90
+start_time = 0
+current_time = 0
+timer_active = False
 
 BB_COLOR = (248, 64, 24)
 
@@ -122,7 +125,7 @@ class BasicSynchronousClient(object):
         Spawns actor-vehicle to be controled.
         """
 
-        car_bp = self.world.get_blueprint_library().filter('vehicle.*')[0]
+        car_bp = self.world.get_blueprint_library().find('vehicle.ford.mustang')
         location = random.choice(self.world.get_map().get_spawn_points())
         self.car = self.world.spawn_actor(car_bp, location)
 
@@ -158,11 +161,11 @@ class BasicSynchronousClient(object):
         if keys[K_w]:
             for vehicle in vehicles:
 
-                control.throttle = 1
+                control.throttle = 2
                 control.reverse = False
         elif keys[K_s]:
             control.throttle = 1
-            control.reverse = True
+            control.reverse=True
         if keys[K_a]:
             control.steer = max(-1., min(control.steer - 0.05, 0))
         elif keys[K_d]:
@@ -172,6 +175,7 @@ class BasicSynchronousClient(object):
         control.hand_brake = keys[K_SPACE]
 
         car.apply_control(control)
+
         return False
 
     @staticmethod
@@ -234,6 +238,7 @@ class BasicSynchronousClient(object):
                 #ObjectClassifier.display_classification(self.display, bounding_boxes, VIEW_WIDTH, VIEW_HEIGHT, BB_COLOR)
                 ObjectIdentifier.object_identifier(self.display)
                 pygame.display.flip()
+                
 
                 pygame.event.pump()
                 if self.control(self.car, vehicles):
@@ -241,8 +246,10 @@ class BasicSynchronousClient(object):
 
         finally:
             self.set_synchronous_mode(False)
-            self.camera.destroy()
-            self.car.destroy()
+            if(self.camera != None):
+                self.camera.destroy()
+            if(self.car != None):
+                self.car.destroy()
             pygame.quit()
 
 
