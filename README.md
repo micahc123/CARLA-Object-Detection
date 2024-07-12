@@ -1,8 +1,4 @@
-# CARLA Object Detection and Classification with YOLOv10
-
-CARLA object detection with YOLOv10
-
-## Getting Started
+# CARLA Object Detection with YOLOv10
 
 ### Prerequisites
 
@@ -17,8 +13,13 @@ CARLA object detection with YOLOv10
    ```bash
    git clone https://github.com/yourusername/carla-object-detection-yolov8.git
 2. Run the CARLA Simulator
-   (assuming your in the home directory)
+   (assuming your in the home directory, also i am showing this example in linux, if you are on windows you can just run the file from the folder)
    ```bash
    cd carla_simulator
+   ./CarlaUE4.sh
    
-4. 
+4. Run the script
+   (assuming your running this in this folder)
+   ```
+   python control.py
+ 
